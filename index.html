@@ -138,7 +138,7 @@
       box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
     }
     .lang-btn {
-      background-color: #444;
+      background-color: red;
       color: white;
       padding: 10px 20px;
       font-size: 16px;
@@ -148,14 +148,14 @@
       margin-top: 10px;
     }
     .lang-btn:hover {
-      background-color: #555;
+      background-color: darkred;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>𝐆𝐇𝐎𝐒𝐓 𝐊𝐈𝑳𝑳𝐑</h1>
-    <div class="description">
+    <h1 id="title">𝐆𝐇𝐎𝐒𝐓 𝐊𝐈𝑳𝑳𝐑</h1>
+    <div class="description" id="description">
       Delta Executor هو واحد من أشهر أدوات استغلال Roblox. حمل الإصدار 2.0 الآن لأجهزة iOS بدون الحاجة إلى كمبيوتر!
     </div>
     <div class="download-btn" id="deltaInstallBtn">Delta Install</div>
@@ -186,77 +186,60 @@
   </div>
 
   <section class="content-section">
-    <h2>Why Choose Delta iOS?</h2>
+    <h2 id="whyChooseTitle">Why Choose Delta iOS?</h2>
     <div class="features-grid">
       <div class="feature-card">
-        <h3>Secure Installation</h3>
-        <p>Our platform uses advanced encryption and security measures to ensure safe app installation every time.</p>
+        <h3 id="secureTitle">Secure Installation</h3>
+        <p id="secureDesc">Our platform uses advanced encryption and security measures to ensure safe app installation every time.</p>
       </div>
       <div class="feature-card">
-        <h3>Regular Updates</h3>
-        <p>Stay current with automatic updates and continuous improvements to your favorite apps.</p>
+        <h3 id="regularTitle">Regular Updates</h3>
+        <p id="regularDesc">Stay current with automatic updates and continuous improvements to your favorite apps.</p>
       </div>
       <div class="feature-card">
-        <h3>Wide Compatibility</h3>
-        <p>Support for various iOS versions and devices, ensuring broad accessibility.</p>
+        <h3 id="compatibilityTitle">Wide Compatibility</h3>
+        <p id="compatibilityDesc">Support for various iOS versions and devices, ensuring broad accessibility.</p>
       </div>
       <div class="feature-card">
-        <h3>Fast Download Speeds</h3>
-        <p>Optimized servers ensure quick and reliable downloads for all users.</p>
+        <h3 id="downloadSpeedTitle">Fast Download Speeds</h3>
+        <p id="downloadSpeedDesc">Optimized servers ensure quick and reliable downloads for all users.</p>
       </div>
     </div>
   </section>
 
   <section class="content-section">
-    <h2>Frequently Asked Questions</h2>
+    <h2 id="faqTitle">Frequently Asked Questions</h2>
     <div class="faq-content">
       <div class="faq-item">
-        <div class="faq-question">Is Delta iOS safe to use?</div>
-        <div class="faq-answer">Yes, Delta iOS prioritizes user security and privacy. All apps are thoroughly scanned and verified before being made available for installation.</div>
+        <div class="faq-question" id="safeQuestion">Is Delta iOS safe to use?</div>
+        <div class="faq-answer" id="safeAnswer">Yes, Delta iOS prioritizes user security and privacy. All apps are thoroughly scanned and verified before being made available for installation.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-question">Which iOS versions are supported?</div>
-        <div class="faq-answer">Delta iOS supports iOS 12.0 and above, ensuring compatibility with a wide range of devices and system versions.</div>
+        <div class="faq-question" id="iosVersionQuestion">Which iOS versions are supported?</div>
+        <div class="faq-answer" id="iosVersionAnswer">Delta iOS supports iOS 12.0 and above, ensuring compatibility with a wide range of devices and system versions.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-question">How often is the app updated?</div>
-        <div class="faq-answer">We regularly update our app to ensure you have access to the latest versions and features.</div>
+        <div class="faq-question" id="updateQuestion">How often is the app updated?</div>
+        <div class="faq-answer" id="updateAnswer">We regularly update our app to ensure you have access to the latest versions and features.</div>
       </div>
     </div>
   </section>
 
   <script>
-    function installApp(url) {
-      document.getElementById("download-msg").style.display = "block";
-      setTimeout(() => { window.location.href = url; }, 2000);
-    }
+    let lang = 'ar'; // default language
 
-    document.getElementById('deltaInstallBtn').addEventListener('click', function () {
-      installApp("itms-services://?action=download-manifest&url=https%3A%2F%2Fdeltaios-executor.com%2FInstall1.plist");
-    });
-
-    document.getElementById('codexInstallBtn').addEventListener('click', function () {
-      installApp("itms-services://?action=download-manifest&url=https%3A%2F%2Fcodex-ios.com%2FInstall.plist");
-    });
-
-    document.getElementById('fortniteInstallBtn').addEventListener('click', function () {
-      installApp("itms-services://?action=download-manifest&url=https://fortnite-ios.com/Install.plist");
-    });
-
-    function showLangSelector() {
-      document.getElementById("langSelect").style.display = "block";
-    }
-
-    function setLanguage(language) {
-      if (language === 'ar') {
-        document.documentElement.lang = 'ar';
-        document.body.dir = 'rtl';
-      } else {
-        document.documentElement.lang = 'en';
-        document.body.dir = 'ltr';
-      }
-      document.getElementById("langSelect").style.display = "none";
-    }
-  </script>
-</body>
-</html>
+    const translations = {
+      en: {
+        title: '𝐆𝐇𝐎𝐒𝐓 𝐊𝐈𝑳𝑳𝐑',
+        description: 'Delta Executor is one of the most popular Roblox exploit tools. Download version 2.0 now for iOS devices without the need for a PC!',
+        deltaInstallBtn: 'Delta Install',
+        codexInstallBtn: 'CODEX Install',
+        fortniteInstallBtn: 'Fortnite',
+        downloadMsg: 'If the download doesn’t start, please open the link in Safari.',
+        whyChooseTitle: 'Why Choose Delta iOS?',
+        secureTitle: 'Secure Installation',
+        secureDesc: 'Our platform uses advanced encryption and security measures to ensure safe app installation every time.',
+        regularTitle: 'Regular Updates',
+        regularDesc: 'Stay current with automatic updates and continuous improvements to your favorite apps.',
+        compatibilityTitle: 'Wide Compatibility',
+        compatibilityDesc: 'Support for various i
