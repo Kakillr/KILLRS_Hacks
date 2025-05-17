@@ -1,1 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KILLRS-Scripts</title>
+
+  <!-- استيراد خط VIP Hala -->
+  <style>
+    @font-face {
+      font-family: 'VIP Hala';
+      src: url('https://fonts.cdnfonts.com/s/16444/VIPHala.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    /* RESET */
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: 'VIP Hala', sans-serif;
+    }
+
+    body, html {
+      height: 100%;
+      background: #f5f7fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      user-select: none;
+      color: #222;
+    }
+
+    /* صفحة اختيار اللغة */
+    #language-select {
+      position: absolute;
+      inset: 0;
+      background: #ffffffee;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      z-index: 10;
+    }
+
+    #language-select h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .lang-btn {
+      font-family: 'VIP Hala', sans-serif;
+      font-size: 1.5rem;
+      padding: 15px 50px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgb(0 0 0 / 0.1);
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+    }
+
+    .lang-btn:hover {
+      filter: brightness(1.2);
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgb(118 75 162 / 0.6);
+    }
+
+    /* الصفحة الرئيسية */
+    #main-site {
+      display: none;
+      width: 100vw;
+      height: 100vh;
+      padding: 20px 40px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(135deg, #f0f3f7, #d9e2ec);
+    }
+
+    #buttons-container {
+      display: grid;
+      grid-template-columns: repeat(2, 200px);
+      grid-template-rows: repeat(2, 70px);
+      gap: 30px 40px;
+      /* ترتيب الأزرار بحيث الأول يكون على اليمين */
+      direction: rtl;
+    }
+
+    button.action-btn {
+      font-family: 'VIP Hala', sans-serif;
+      font-size: 1.25rem;
+      border: none;
+      border-radius: 15px;
+      cursor: pointer;
+      color: white;
+      background: linear-gradient(45deg, #ff7e5f, #feb47b);
+      box-shadow: 0 4px 12px rgb(255 126 95 / 0.6);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    /* أزرار مختلفة الإيفكتات */
+    button.action-btn:nth-child(1) {
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      box-shadow: 0 4px 15px rgb(102 126 234 / 0.7);
+    }
+    button.action-btn:nth-child(1):hover {
+      transform: scale(1.1) rotate(3deg);
+      box-shadow: 0 8px 25px rgb(118 75 162 / 0.9);
+    }
+
+    button.action-btn:nth-child(2) {
+      background: linear-gradient(45deg, #43cea2, #185a9d);
+      box-shadow: 0 4px 15px rgb(67 206 162 / 0.7);
+    }
+    button.action-btn:nth-child(2):hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgb(24 90 157 / 0.9);
+    }
+
+    button.action-btn:nth-child(3) {
+      background: linear-gradient(45deg, #f7971e, #ffd200);
+      box-shadow: 0 4px 15px rgb(247 151 30 / 0.7);
+    }
+    button.action-btn:nth-child(3):hover {
+      transform: scale(1.1) translateX(10px);
+      box-shadow: 0 10px 30px rgb(255 210 0 / 0.9);
+    }
+
+    button.action-btn:nth-child(4) {
+      background: linear-gradient(45deg, #f54ea2, #ff7676);
+      box-shadow: 0 4px 15px rgb(245 78 162 / 0.7);
+    }
+    button.action-btn:nth-child(4):hover {
+      transform: rotate(-5deg) scale(1.05);
+      box-shadow: 0 10px 30px rgb(255 118 118 / 0.9);
+    }
+
+    /* نص التوضيح أسفل الصفحة */
+    #footer-text {
+      font-size: 1rem;
+      max-width: 700px;
+      color: #444;
+      text-align: center;
+      font-weight: 500;
+      line-height: 1.5;
+      padding: 20px;
+      user-select: text;
+      direction: ltr;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- صفحة اختيار اللغة -->
+  <div id="language-select">
+    <h2>Please select your language / الرجاء اختيار لغتك</h2>
+    <button class="lang-btn" data-lang="en">English</button>
+    <button class="lang-btn" data-lang="ar">عربي</button>
+  </div>
+
+  <!-- الصفحة الرئيسية -->
+  <div id="main-site">
+    <div id="buttons-container">
+      <button class="action-btn" id="btn1"></button>
+      <button class="action-btn" id="btn2"></button>
+      <button class="action-btn" id="btn3"></button>
+      <button class="action-btn" id="btn4"></button>
+    </div>
+
+    <div id="footer-text"></div>
+  </div>
+
+  <script>
+    const langSelectDiv = document.getElementById('language-select');
+    const mainSiteDiv = document.getElementById('main-site');
+
+    // نصوص الأزرار لكل لغة مع الفاصل |
+    const texts = {
+      en: {
+        buttons: [
+          "Delta | دلتا",
+          "Krnl | كارنل",
+          "Codex | كودكس",
+          "Arsious | ارسيوس"
+        ],
+        footer: "Welcome to KILLRS-Scripts! Here you can find your favorite scripts easily and safely. Choose a section above to get started."
+      },
+      ar: {
+        buttons: [
+          "دلتا | Delta",
+          "كارنل | Krnl",
+          "كودكس | Codex",
+          "ارسيــوس | Arsious"
+        ],
+        footer: "مرحباً بك في KILLRS-Scripts! هنا يمكنك إيجاد السكربتات المفضلة لديك بسهولة وأمان. اختر القسم أعلاه للبدء."
+      }
+    };
+
+    // عند اختيار اللغة
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.getAttribute('data-lang');
+        langSelectDiv.style.display = 'none';
+        mainSiteDiv.style.display = 'flex';
+
+        // تغيير نصوص الأزرار
+        for(let i=1; i<=4; i++) {
+          document.getElementById('btn'+i).textContent = texts[lang].buttons[i-1];
+          if(lang === 'ar') {
+            document.getElementById('btn'+i).style.direction = 'rtl';
+            document.getElementById('btn'+i).style.textAlign = 'center';
+          } else {
+            document.getElementById('btn'+i).style.direction = 'ltr';
+            document.getElementById('btn'+i).style.textAlign = 'center';
+          }
+        }
+
+        // تغيير نص الأسفل
+        const footer = document.getElementById('footer-text');
+        footer.textContent = texts[lang].footer;
+        if(lang === 'ar') {
+          footer.style.direction = 'rtl';
+          footer.style.textAlign = 'center';
+          footer.style.fontWeight = '600';
+        } else {
+          footer.style.direction = 'ltr';
+          footer.style.textAlign = 'center';
+          footer.style.fontWeight = '500';
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
 
