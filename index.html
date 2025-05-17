@@ -70,54 +70,51 @@
     }
 
     /* الصفحة الرئيسية */
-#main-site {
-  display: none;
-  width: 100vw;
-  height: 100vh;
-  padding: 20px 40px;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  background: linear-gradient(135deg, #f0f3f7, #d9e2ec);
-}
+    #main-site {
+      display: none;
+      width: 100vw;
+      height: 100vh;
+      padding: 20px 40px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(135deg, #f0f3f7, #d9e2ec);
+    }
 
-/* اسم الموقع فوق الأزرار */
-#site-name {
-  font-family: 'VIP Hala', sans-serif;
-  font-size: 3rem;
-  font-weight: 900;
-  color: #764ba2;
-  text-shadow: 2px 2px 8px rgba(118, 75, 162, 0.7);
-  margin-bottom: 40px;
-  user-select: text;
-}
+    /* اسم الموقع فوق */
+    #site-name {
+      font-size: 3rem;
+      font-weight: 900;
+      color: #764ba2;
+      text-shadow: 2px 2px 8px rgba(118, 75, 162, 0.7);
+      margin-bottom: 40px;
+      user-select: text;
+    }
 
-#buttons-container {
-  display: grid;
-  grid-template-columns: repeat(2, 200px);
-  grid-template-rows: repeat(2, 70px);
-  gap: 30px 40px;
-  /* ترتيب الأزرار بحيث الأول يكون على اليمين */
-  direction: rtl;
-}
+    #buttons-container {
+      display: grid;
+      grid-template-columns: repeat(2, 200px);
+      grid-template-rows: repeat(2, 70px);
+      gap: 30px 40px;
+      direction: rtl;
+    }
 
-button.action-btn {
-  font-family: 'VIP Hala', sans-serif;
-  font-size: 1.25rem;
-  border: none;
-  border-radius: 15px;
-  cursor: pointer;
-  color: white;
-  background: linear-gradient(45deg, #ff7e5f, #feb47b);
-  box-shadow: 0 4px 12px rgb(255 126 95 / 0.6);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  white-space: nowrap;
-}
-
+    button.action-btn {
+      font-family: 'VIP Hala', sans-serif;
+      font-size: 1.25rem;
+      border: none;
+      border-radius: 15px;
+      cursor: pointer;
+      color: white;
+      background: linear-gradient(45deg, #ff7e5f, #feb47b);
+      box-shadow: 0 4px 12px rgb(255 126 95 / 0.6);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      white-space: nowrap;
+    }
 
     /* أزرار مختلفة الإيفكتات */
     button.action-btn:nth-child(1) {
@@ -182,6 +179,8 @@ button.action-btn {
 
   <!-- الصفحة الرئيسية -->
   <div id="main-site">
+    <div id="site-name">GHOST_KILLR</div>
+
     <div id="buttons-container">
       <button class="action-btn" id="btn1"></button>
       <button class="action-btn" id="btn2"></button>
@@ -214,7 +213,7 @@ button.action-btn {
           "كودكس | Codex",
           "ارسيــوس | Arsious"
         ],
-        footer: "مرحباً بك في KILLRS-Hack! هنا يمكنك إيجاد الهاكات المفضلة لديك بسهولة وأمان. اختر القسم أعلاه للبدء."
+        footer: "مرحباً بك في KILLRS-Scripts! هنا يمكنك إيجاد السكربتات المفضلة لديك بسهولة وأمان. اختر القسم أعلاه للبدء."
       }
     };
 
@@ -255,4 +254,3 @@ button.action-btn {
 
 </body>
 </html>
-
