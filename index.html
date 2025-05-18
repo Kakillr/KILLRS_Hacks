@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>KILLRS-Scripts</title>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <!-- استيراد خط VIP Hala -->
   <style>
     @font-face {
@@ -115,7 +115,37 @@
       overflow: hidden;
       white-space: nowrap;
     }
+#telegram-button-container {
+  margin-top: 20px;
+}
 
+#telegram-button {
+  background-color: #111;
+  color: white;
+  font-family: 'VIP Hala', sans-serif;
+  font-size: 1rem;
+  text-decoration: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#telegram-button:hover {
+  box-shadow: 0 6px 14px rgba(255, 255, 255, 0.2);
+}
+
+#telegram-button:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 6px rgba(255, 255, 255, 0.05);
+}
+
+
+    
     /* أزرار مختلفة الإيفكتات */
     button.action-btn:nth-child(1) {
       background: linear-gradient(45deg, #667eea, #764ba2);
@@ -187,7 +217,12 @@
       <button class="action-btn" id="btn3"></button>
       <button class="action-btn" id="btn4"></button>
     </div>
-
+ <div id="telegram-button-container">
+    <a href="https://t.me/ka_killr" target="_blank" id="telegram-button">
+      <i class="fab fa-telegram"></i>
+      KA_KILLR
+    </a>
+  </div>
     <div id="footer-text"></div>
   </div>
 
