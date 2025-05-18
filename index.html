@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ghost_KILLR</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <!-- VIP Hala -->
+  <title>KILLRS-Scripts</title>
+
+  <!-- استيراد خط VIP Hala -->
   <style>
     @font-face {
       font-family: 'VIP Hala';
@@ -31,7 +31,7 @@
       color: #222;
     }
 
-    /* اختيار اللغة */
+    /* صفحة اختيار اللغة */
     #language-select {
       position: absolute;
       inset: 0;
@@ -58,10 +58,9 @@
       border-radius: 30px;
       cursor: pointer;
       transition: all 0.3s ease;
-      box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+      box-shadow: 0 4px 10px rgb(0 0 0 / 0.1);
       background: linear-gradient(135deg, #667eea, #764ba2);
       color: white;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .lang-btn:hover {
@@ -69,14 +68,10 @@
       transform: scale(1.05);
       box-shadow: 0 6px 20px rgb(118 75 162 / 0.6);
     }
-    .lang-btn:active {
-      transform: scale(0.98);
-      box-shadow: 0 2px 6px rgba(255, 255, 255, 0.1);
-    }
 
     /* الصفحة الرئيسية */
     #main-site {
-      display: none; /* مخفي بالبداية */
+      display: none;
       width: 100vw;
       height: 100vh;
       padding: 20px 40px;
@@ -85,40 +80,32 @@
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
-      background-color: #000; /* خلفيه سوداء */
+      background: linear-gradient(135deg, #f0f3f7, #d9e2ec);
     }
 
-    /* اسم الموقع */
+    /* اسم الموقع فوق */
     #site-name {
       font-size: 3rem;
       font-weight: 900;
-      color: #00ff88; /* أخضر قوي */
-      text-shadow: 0 0 15px rgba(0, 255, 136, 0.7);
+      color: #764ba2;
+      text-shadow: 2px 2px 8px rgba(118, 75, 162, 0.7);
       margin-bottom: 40px;
       user-select: text;
-      opacity: 0; /* تأثيرات انسيابية */
-      transform: translateY(-30px);
-      transition: all 0.8s ease-in-out;
-      text-align: center;
-      width: 100%;
     }
 
-    /* ايفكتات الأزرار */
     #buttons-container {
       display: grid;
       grid-template-columns: repeat(2, 200px);
       grid-template-rows: repeat(2, 70px);
       gap: 30px 40px;
-      direction: rtl; /* اتجاه النص من اليمين لليسار */
-      justify-content: center;
+      direction: rtl;
     }
 
-    /* أزرار التفاعل */
     button.action-btn {
       font-family: 'VIP Hala', sans-serif;
       font-size: 1.25rem;
       border: none;
-      border-radius: 30px; /* ناعمة الحواف */
+      border-radius: 15px;
       cursor: pointer;
       color: white;
       background: linear-gradient(45deg, #ff7e5f, #feb47b);
@@ -127,43 +114,9 @@
       position: relative;
       overflow: hidden;
       white-space: nowrap;
-      text-align: center;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    /* زر تيليجرام */
-    #telegram-button-container {
-      margin-top: 20px;
     }
 
-    /*  رابط تيليجرام */
-    #telegram-button {
-      background-color: #111;
-      color: white;
-      font-family: 'VIP Hala', sans-serif;
-      font-size: 1rem;
-      text-decoration: none;
-      border-radius: 10px;
-      padding: 10px 20px;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    #telegram-button:hover {
-      box-shadow: 0 6px 14px rgba(255, 255, 255, 0.2);
-    }
-
-    #telegram-button:active {
-      transform: scale(0.95);
-      box-shadow: 0 2px 6px rgba(255, 255, 255, 0.05);
-    }
-
-    /* تأثيرات مختلفةل */
+    /* أزرار مختلفة الإيفكتات */
     button.action-btn:nth-child(1) {
       background: linear-gradient(45deg, #667eea, #764ba2);
       box-shadow: 0 4px 15px rgb(102 126 234 / 0.7);
@@ -200,7 +153,7 @@
       box-shadow: 0 10px 30px rgb(255 118 118 / 0.9);
     }
 
-    /* نص */
+    /* نص التوضيح أسفل الصفحة */
     #footer-text {
       font-size: 1rem;
       max-width: 700px;
@@ -211,23 +164,22 @@
       padding: 20px;
       user-select: text;
       direction: ltr;
-      margin-top: 20px;
     }
 
   </style>
 </head>
 <body>
 
-  <!-- اختيار اللغة -->
+  <!-- صفحة اختيار اللغة -->
   <div id="language-select">
-    <h2> Choose | اختار </h2>
+    <h2>Please select your language / الرجاء اختيار لغتك</h2>
     <button class="lang-btn" data-lang="en">English</button>
     <button class="lang-btn" data-lang="ar">عربي</button>
   </div>
 
   <!-- الصفحة الرئيسية -->
   <div id="main-site">
-    <div id="site-name">Ghost_KILLR</div>
+    <div id="site-name">GHOST_KILLR</div>
 
     <div id="buttons-container">
       <button class="action-btn" id="btn1"></button>
@@ -236,67 +188,69 @@
       <button class="action-btn" id="btn4"></button>
     </div>
 
-    <div id="telegram-button-container">
-      <a href="https://t.me/ka_killr" target="_blank" id="telegram-button">
-        <i class="fab fa-telegram"></i>
-        KA_KILLR
-      </a>
-    </div>
-
     <div id="footer-text"></div>
   </div>
 
   <script>
-    // تعريف المتغيرات لعناصر الصفحة
     const langSelectDiv = document.getElementById('language-select');
     const mainSiteDiv = document.getElementById('main-site');
-    const siteName = document.getElementById('site-name');
-    const btn1 = document.getElementById('btn1');
-    const btn2 = document.getElementById('btn2');
-    const btn3 = document.getElementById('btn3');
-    const btn4 = document.getElementById('btn4');
-    const footerText = document.getElementById('footer-text');
 
-    // محتوى النصوص حسب اللغة
-    const content = {
+    // نصوص الأزرار لكل لغة مع الفاصل |
+    const texts = {
       en: {
-        btn1: "Delta",
-        btn2: "Krnl",
-        btn3: "Codex",
-        btn4: "Arceus",
-        footer:
-    document.body.style.direction = "ltr";
-    [btn1, btn2, btn3, btn4].forEach(btn => {
-      btn.style.textAlign = "center";
-      btn.style.borderRadius = "20px";
+        buttons: [
+          "Delta | دلتا",
+          "Krnl | كارنل",
+          "Codex | كودكس",
+          "Arsious | ارسيوس"
+        ],
+        footer: "Welcome to KILLRS-Scripts! Here you can find your favorite scripts easily and safely. Choose a section above to get started."
+      },
+      ar: {
+        buttons: [
+          "دلتا | Delta",
+          "كارنل | Krnl",
+          "كودكس | Codex",
+          "ارسيــوس | Arsious"
+        ],
+        footer: "مرحباً بك في KILLRS-Scripts! هنا يمكنك إيجاد السكربتات المفضلة لديك بسهولة وأمان. اختر القسم أعلاه للبدء."
+      }
+    };
+
+    // عند اختيار اللغة
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.getAttribute('data-lang');
+        langSelectDiv.style.display = 'none';
+        mainSiteDiv.style.display = 'flex';
+
+        // تغيير نصوص الأزرار
+        for(let i=1; i<=4; i++) {
+          document.getElementById('btn'+i).textContent = texts[lang].buttons[i-1];
+          if(lang === 'ar') {
+            document.getElementById('btn'+i).style.direction = 'rtl';
+            document.getElementById('btn'+i).style.textAlign = 'center';
+          } else {
+            document.getElementById('btn'+i).style.direction = 'ltr';
+            document.getElementById('btn'+i).style.textAlign = 'center';
+          }
+        }
+
+        // تغيير نص الأسفل
+        const footer = document.getElementById('footer-text');
+        footer.textContent = texts[lang].footer;
+        if(lang === 'ar') {
+          footer.style.direction = 'rtl';
+          footer.style.textAlign = 'center';
+          footer.style.fontWeight = '600';
+        } else {
+          footer.style.direction = 'ltr';
+          footer.style.textAlign = 'center';
+          footer.style.fontWeight = '500';
+        }
+      });
     });
-  }
-
-  // إظهار اسم الموقع بتأثير انسيابي
-  setTimeout(() => {
-    siteName.style.opacity = 1;
-    siteName.style.transform = "translateY(0)";
-  }, 300);
-}
-
-// جلب العناصر
-const langSelectDiv = document.getElementById("language-select");
-const mainSiteDiv = document.getElementById("main-site");
-const btn1 = document.getElementById("btn1");
-const btn2 = document.getElementById("btn2");
-const btn3 = document.getElementById("btn3");
-const btn4 = document.getElementById("btn4");
-const siteName = document.getElementById("site-name");
-const footerText = document.getElementById("footer-text");
-
-// التعامل مع اختيار اللغة
-document.querySelectorAll(".lang-btn").forEach(button => {
-  button.addEventListener("click", () => {
-    const lang = button.getAttribute("data-lang");
-    activateLanguage(lang);
-  });
-});
-</script>
+  </script>
 
 </body>
 </html>
