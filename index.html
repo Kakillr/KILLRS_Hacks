@@ -191,31 +191,42 @@
     <div id="footer-text"></div>
   </div>
 
-  <script>
-    const langSelectDiv = document.getElementById('language-select');
-    const mainSiteDiv = document.getElementById('main-site');
+<script>
+  const langSelectDiv = document.getElementById('language-select');
+  const mainSiteDiv = document.getElementById('main-site');
 
-    // نصوص الأزرار لكل لغة مع الفاصل |
-    const texts = {
-      en: {
-        buttons: [
-          "Delta | دلتا",
-          "Krnl | كارنل",
-          "Codex | كودكس",
-          "Arsious | ارسيوس"
-        ],
-        footer: "Welcome to KILLRS-Scripts! Here you can find your favorite scripts easily and safely. Choose a section above to get started."
-      },
-      ar: {
-        buttons: [
-          "دلتا | Delta",
-          "كارنل | Krnl",
-          "كودكس | Codex",
-          "ارسيــوس | Arsious"
-        ],
-        footer: "مرحباً بك في KILLRS-Hack! هنا يمكنك إيجاد الهاكات المفضلة لديك بسهولة وأمان. اختر القسم أعلاه للبدء."
-      }
-    };
+  const texts = {
+    en: {
+      buttons: [
+        ["Delta", "دلتا"],
+        ["Krnl", "كارنل"],
+        ["Codex", "كودكس"],
+        ["Arsious", "اريسيوس"]
+      ],
+      footer: "Welcome to KILLRS-Scripts! Here you can find your favorite scripts easily and safely. Choose a section above to get started."
+    },
+    ar: {
+      buttons: [
+        ["دلتا", "Delta"],
+        ["كارنل", "Krnl"],
+        ["كودكس", "Codex"],
+        ["ارسيــوس", "Arsious"]
+      ],
+      footer: "مرحباً بك في KILLRS-Hack! هنا يمكنك إيجاد الهاكات المفضلة لديك بسهولة وأمان. اختر القسم أعلاه للبدء."
+    }
+  };
+
+  function startSite(lang = 'en') {
+    langSelectDiv.style.display = 'none';
+    mainSiteDiv.style.display = 'flex';
+
+    // تغيير النصوص للأزرار
+    texts[lang].buttons.forEach((pair, i) => {
+      document.getElementById(`btn${i+1}`).innerHTML = `<span class="en">${pair[0]}</span> | <span class="ar">${pair[1]}</span>`;
+    });
+
+    document.getElementById("footer-text").textContent = texts[lang].footer;
+  }
 
     // عند اختيار اللغة
     document.querySelectorAll('.lang-btn').forEach(btn => {
