@@ -195,6 +195,61 @@
     const langSelectDiv = document.getElementById('language-select');
     const mainSiteDiv = document.getElementById('main-site');
 
+
+ /* أزرار التفاعل */
+    button.action-btn {
+      font-family: 'VIP Hala', sans-serif;
+      font-size: 1.25rem;
+      border: none;
+      border-radius: 30px; /* ناعمة الحواف */
+      cursor: pointer;
+      color: white;
+      background: linear-gradient(45deg, #ff7e5f, #feb47b);
+      box-shadow: 0 4px 12px rgb(255 126 95 / 0.6);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      white-space: nowrap;
+      text-align: center; /* الاسم بالمنتصف */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    /* زر تيليجرام */
+    #telegram-button-container {
+      margin-top: 20px;
+    }
+
+    /*  رابط تيليجرام */
+    #telegram-button {
+      background-color: #111;
+      color: white;
+      font-family: 'VIP Hala', sans-serif;
+      font-size: 1rem;
+      text-decoration: none;
+      border-radius: 10px;
+      padding: 10px 20px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    #telegram-button:hover {
+      box-shadow: 0 6px 14px rgba(255, 255, 255, 0.2);
+    }
+
+    #telegram-button:active {
+      transform: scale(0.95);
+      box-shadow: 0 2px 6px rgba(255, 255, 255, 0.05);
+    }
+
+
+
+
+
     // نصوص الأزرار لكل لغة مع الفاصل |
     const texts = {
       en: {
@@ -204,7 +259,7 @@
           "Codex | كودكس",
           "Arsious | ارسيوس"
         ],
-        footer: "Welcome to KILLRS-Scripts! Here you can find your favorite scripts easily and safely. Choose a section above to get started."
+        footer: "Welcome to KILLRS-Hacks! Here you can find your favorite Hacks easily and safely. Choose a section above to get started."
       },
       ar: {
         buttons: [
@@ -213,7 +268,7 @@
           "كودكس | Codex",
           "ارسيــوس | Arsious"
         ],
-        footer: "مرحباً بك في KILLRS-Scripts! هنا يمكنك إيجاد السكربتات المفضلة لديك بسهولة وأمان. اختر القسم أعلاه للبدء."
+        footer: "مرحباً بك في KILLRS-Hacks! هنا يمكنك إيجاد هاكات المفضلة لديك بسهولة وأمان. اختر القسم أعلاه للبدء."
       }
     };
 
