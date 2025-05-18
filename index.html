@@ -76,7 +76,7 @@
 
     /* الصفحة الرئيسية */
     #main-site {
-      display: none; /* كود اخفاء */
+      display: none; /* مخفي بالبداية */
       width: 100vw;
       height: 100vh;
       padding: 20px 40px;
@@ -127,7 +127,7 @@
       position: relative;
       overflow: hidden;
       white-space: nowrap;
-      text-align: center; /* الاسم بالمنتصف */
+      text-align: center;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -221,93 +221,82 @@
   <!-- اختيار اللغة -->
   <div id="language-select">
     <h2> Choose | اختار </h2>
-    <!--  اختيار اللغة -->
     <button class="lang-btn" data-lang="en">English</button>
     <button class="lang-btn" data-lang="ar">عربي</button>
   </div>
 
   <!-- الصفحة الرئيسية -->
   <div id="main-site">
-    <!-- الموقع -->
     <div id="site-name">Ghost_KILLR</div>
 
-    <!-- ايفكتات الأزرار -->
     <div id="buttons-container">
-      <!-- أزرار العمل  -->
-      <button class="action-btn" id="btn1"></button> <!-- زر 1 -->
-      <button class="action-btn" id="btn2"></button> <!-- زر 2 -->
-      <button class="action-btn" id="btn3"></button> <!-- زر 3 -->
-      <button class="action-btn" id="btn4"></button> <!-- زر 4 -->
+      <button class="action-btn" id="btn1"></button>
+      <button class="action-btn" id="btn2"></button>
+      <button class="action-btn" id="btn3"></button>
+      <button class="action-btn" id="btn4"></button>
     </div>
-    
-    <!--  قناة تيليجرام -->
+
     <div id="telegram-button-container">
       <a href="https://t.me/ka_killr" target="_blank" id="telegram-button">
         <i class="fab fa-telegram"></i>
         KA_KILLR
       </a>
     </div>
-    
-    <!-- نص  أسفل الصفحة -->
+
     <div id="footer-text"></div>
   </div>
 
-<script>
-  // عناصر الصفحة
-  const langSelectDiv = document.getElement
-const content = {
-  en: {
-    btn1: "Delta",
-    btn2: "Krnl",
-    btn3: "Codex",
-    btn4: "Arceus",
-    footer: "The best Arabic site for free scripts and advanced hacking tools. Created by Ghost_KILLR.",
-  },
-  ar: {
-    btn1: "دلتا | Delta",
-    btn2: "كارنل | Krnl",
-    btn3: "كودكس | Codex",
-    btn4: "ارسيــوس | Arceus",
-    footer: "أفضل موقع عربي للسكربتات المجانية وأدوات الهكر المتقدمة. من تطوير Ghost_KILLR.",
-  }
-};
+  <script>
+    // تعريف المتغيرات لعناصر الصفحة
+    const langSelectDiv = document.getElementById('language-select');
+    const mainSiteDiv = document.getElementById('main-site');
+    const siteName = document.getElementById('site-name');
+    const btn1 = document.getElementById('btn1');
+    const btn2 = document.getElementById('btn2');
+    const btn3 = document.getElementById('btn3');
+    const btn4 = document.getElementById('btn4');
+    const footerText = document.getElementById('footer-text');
 
-function activateLanguage(lang) {
-  langSelectDiv.style.display = "none";
-  mainSiteDiv.style.display = "flex";
-
-  btn1.textContent = content[lang].btn1;
-  btn2.textContent = content[lang].btn2;
-  btn3.textContent = content[lang].btn3;
-  btn4.textContent = content[lang].btn4;
-  footerText.textContent = content[lang].footer;
-
-  if (lang === 'ar') {
-    document.body.style.direction = "rtl";
-    [btn1, btn2, btn3, btn4].forEach(btn => {
-      btn.style.textAlign = "center";  // وسط الاسم في الزر
-      btn.style.borderRadius = "20px"; // حواف ناعمة
-    });
-  } else {
+    // محتوى النصوص حسب اللغة
+    const content = {
+      en: {
+        btn1: "Delta",
+        btn2: "Krnl",
+        btn3: "Codex",
+        btn4: "Arceus",
+        footer:
     document.body.style.direction = "ltr";
     [btn1, btn2, btn3, btn4].forEach(btn => {
-      btn.style.textAlign = "center";  // وسط الاسم في الزر
-      btn.style.borderRadius = "20px"; // حواف ناعمة
+      btn.style.textAlign = "center";
+      btn.style.borderRadius = "20px";
     });
   }
 
+  // إظهار اسم الموقع بتأثير انسيابي
   setTimeout(() => {
     siteName.style.opacity = 1;
     siteName.style.transform = "translateY(0)";
-  }, 100);
+  }, 300);
 }
 
-// تعديل اسم الموقع ليصبح Ghost_KILLR
-siteName.textContent = "Ghost_KILLR";
+// جلب العناصر
+const langSelectDiv = document.getElementById("language-select");
+const mainSiteDiv = document.getElementById("main-site");
+const btn1 = document.getElementById("btn1");
+const btn2 = document.getElementById("btn2");
+const btn3 = document.getElementById("btn3");
+const btn4 = document.getElementById("btn4");
+const siteName = document.getElementById("site-name");
+const footerText = document.getElementById("footer-text");
 
-// إضافة أحداث لأزرار اختيار اللغة
-document.querySelectorAll('.lang-btn').forEach(button => {
-  button.addEventListener('click', () => {
-    activateLanguage(button.dataset.lang);
+// التعامل مع اختيار اللغة
+document.querySelectorAll(".lang-btn").forEach(button => {
+  button.addEventListener("click", () => {
+    const lang = button.getAttribute("data-lang");
+    activateLanguage(lang);
   });
 });
+</script>
+
+</body>
+</html>
