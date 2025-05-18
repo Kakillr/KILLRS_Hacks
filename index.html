@@ -49,25 +49,33 @@
       margin-bottom: 20px;
       color: #333;
     }
+.lang-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: #000;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 24px;
+  font-family: 'VIP Hala', sans-serif;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-    .lang-btn {
-      font-family: 'VIP Hala', sans-serif;
-      font-size: 1.5rem;
-      padding: 15px 50px;
-      border: none;
-      border-radius: 30px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 10px rgb(0 0 0 / 0.1);
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      color: white;
-    }
+.lang-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(255, 255, 255, 0.2);
+}
 
-    .lang-btn:hover {
-      filter: brightness(1.2);
-      transform: scale(1.05);
-      box-shadow: 0 6px 20px rgb(118 75 162 / 0.6);
-    }
+.lang-btn:active {
+  transform: scale(0.98);
+  box-shadow: 0 2px 6px rgba(255, 255, 255, 0.1);
+}
+
 
     /* الصفحة الرئيسية */
     #main-site {
@@ -85,13 +93,18 @@
 
     /* اسم الموقع فوق */
     #site-name {
-      font-size: 3rem;
-      font-weight: 900;
-      color: #764ba2;
-      text-shadow: 2px 2px 8px rgba(118, 75, 162, 0.7);
-      margin-bottom: 40px;
-      user-select: text;
-    }
+  font-size: 3rem;
+  font-weight: 900;
+  color: #00ff88; /* أخضر فاقع */
+  text-shadow: 0 0 15px rgba(0, 255, 136, 0.5);
+  margin-bottom: 40px;
+  user-select: text;
+  opacity: 0;
+  transform: translateY(-30px);
+  transition: all 0.8s ease-in-out;
+}
+document.getElementById('site-name').style.opacity = '1';
+document.getElementById('site-name').style.transform = 'translateY(0)';
 
     #buttons-container {
       display: grid;
