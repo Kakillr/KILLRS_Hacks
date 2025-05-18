@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>KILLRS-Scripts</title>
+  <title>Ghost_KILLR</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <!-- VIP Hala -->
   <style>
@@ -85,20 +85,22 @@
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
-      background-color: #000; /* خلفيه سوده يابههههههه */
+      background-color: #000; /* خلفيه سوداء */
     }
 
     /* اسم الموقع */
     #site-name {
       font-size: 3rem;
       font-weight: 900;
-      color: #00ff88; /* أخضر ضضدعي */
+      color: #00ff88; /* أخضر قوي */
       text-shadow: 0 0 15px rgba(0, 255, 136, 0.7);
       margin-bottom: 40px;
       user-select: text;
-      opacity: 0; /* كله تاثيرات يابههه */
+      opacity: 0; /* تأثيرات انسيابية */
       transform: translateY(-30px);
       transition: all 0.8s ease-in-out;
+      text-align: center;
+      width: 100%;
     }
 
     /* ايفكتات الأزرار */
@@ -108,6 +110,7 @@
       grid-template-rows: repeat(2, 70px);
       gap: 30px 40px;
       direction: rtl; /* اتجاه النص من اليمين لليسار */
+      justify-content: center;
     }
 
     /* أزرار التفاعل */
@@ -115,7 +118,7 @@
       font-family: 'VIP Hala', sans-serif;
       font-size: 1.25rem;
       border: none;
-      border-radius: 15px;
+      border-radius: 30px; /* ناعمة الحواف */
       cursor: pointer;
       color: white;
       background: linear-gradient(45deg, #ff7e5f, #feb47b);
@@ -124,7 +127,10 @@
       position: relative;
       overflow: hidden;
       white-space: nowrap;
-      text-align: center;
+      text-align: center; /* الاسم بالمنتصف */
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
     /* زر تيليجرام */
     #telegram-button-container {
@@ -205,6 +211,7 @@
       padding: 20px;
       user-select: text;
       direction: ltr;
+      margin-top: 20px;
     }
 
   </style>
@@ -222,7 +229,7 @@
   <!-- الصفحة الرئيسية -->
   <div id="main-site">
     <!-- الموقع -->
-    <div id="site-name">KILLRS_Hacks</div>
+    <div id="site-name">Ghost_KILLR</div>
 
     <!-- ايفكتات الأزرار -->
     <div id="buttons-container">
@@ -247,80 +254,60 @@
 
 <script>
   // عناصر الصفحة
-  const langSelectDiv = document.getElementById('language-select'); // صفحة اختيار اللغة
-  const mainSiteDiv = document.getElementById('main-site'); // الصفحة الرئيسية
-  const siteName = document.getElementById('site-name'); // اسم الموقع
-  const footerText = document.getElementById('footer-text'); // نص التوضيح
-  const btn1 = document.getElementById('btn1'); // زر 1
-  const btn2 = document.getElementById('btn2'); // زر 2
-  const btn3 = document.getElementById('btn3'); // زر 3
-  const btn4 = document.getElementById('btn4'); // زر 4
+  const langSelectDiv = document.getElement
+const content = {
+  en: {
+    btn1: "Delta",
+    btn2: "Krnl",
+    btn3: "Codex",
+    btn4: "Arceus",
+    footer: "The best Arabic site for free scripts and advanced hacking tools. Created by Ghost_KILLR.",
+  },
+  ar: {
+    btn1: "دلتا | Delta",
+    btn2: "كارنل | Krnl",
+    btn3: "كودكس | Codex",
+    btn4: "ارسيــوس | Arceus",
+    footer: "أفضل موقع عربي للسكربتات المجانية وأدوات الهكر المتقدمة. من تطوير Ghost_KILLR.",
+  }
+};
 
-  // محتوى النصوص لكل لغة
-  const content = {
-    en: {
-      btn1: "Delta",       // نص زر 1 باللغة الإنجليزية
-      btn2: "Krnl",    // نص زر 2 باللغة الإنجليزية
-      btn3: "Codex",         // نص زر 3 باللغة الإنجليزية
-      btn4: "Arceus",          // نص زر 4 باللغة الإنجليزية
-      footer: "The best Arabic site for free scripts and advanced hacking tools. Created by KA_KILLR.", // نص التوضيح أسفل الصفحة بالإنجليزية
-    },
-    ar: {
-     ar: {
-      buttons: [
-        ["دلتا | Delta"],
-        ["كارنل | Krnl"],
-        ["كودكس | Codex"],
-        ["ارسيــوس | Arceus"]
-      ],
-      footer: "أفضل موقع عربي للسكربتات المجانية وأدوات الهكر المتقدمة. من تطوير KA_KILLR.", // نص التوضيح أسفل الصفحة بالعربية
-    }
-  };
+function activateLanguage(lang) {
+  langSelectDiv.style.display = "none";
+  mainSiteDiv.style.display = "flex";
 
-  // دالة لتفعيل اللغة المختارة
-  function activateLanguage(lang) {
-    // إخفاء صفحة اختيار اللغة عند اختيار أي لغة
-    langSelectDiv.style.display = "none";
+  btn1.textContent = content[lang].btn1;
+  btn2.textContent = content[lang].btn2;
+  btn3.textContent = content[lang].btn3;
+  btn4.textContent = content[lang].btn4;
+  footerText.textContent = content[lang].footer;
 
-    // إظهار الصفحة الرئيسية
-    mainSiteDiv.style.display = "flex";
-
-    // تعيين نصوص الأزرار ونص التوضيح حسب اللغة المختارة
-    btn1.textContent = content[lang].btn1;
-    btn2.textContent = content[lang].btn2;
-    btn3.textContent = content[lang].btn3;
-      btn4.textContent = content[lang].btn4;
-    footerText.textContent = content[lang].footer;
-
-    // تغيير اتجاه الصفحة حسب اللغة (rtl للعربية وltr للإنجليزية)
-    if (lang === 'ar') {
-      document.body.style.direction = "rtl";
-      btn1.style.textAlign = "right";
-      btn2.style.textAlign = "right";
-      btn3.style.textAlign = "right";
-      btn4.style.textAlign = "right";
-    } else {
-      document.body.style.direction = "ltr";
-      btn1.style.textAlign = "center";
-      btn2.style.textAlign = "center";
-      btn3.style.textAlign = "center";
-      btn4.style.textAlign = "center";
-    }
-
-    // ظهور اسم الموقع مع تأثير انسيابي
-    setTimeout(() => {
-      siteName.style.opacity = 1;
-      siteName.style.transform = "translateY(0)";
-    }, 100);
+  if (lang === 'ar') {
+    document.body.style.direction = "rtl";
+    [btn1, btn2, btn3, btn4].forEach(btn => {
+      btn.style.textAlign = "center";  // وسط الاسم في الزر
+      btn.style.borderRadius = "20px"; // حواف ناعمة
+    });
+  } else {
+    document.body.style.direction = "ltr";
+    [btn1, btn2, btn3, btn4].forEach(btn => {
+      btn.style.textAlign = "center";  // وسط الاسم في الزر
+      btn.style.borderRadius = "20px"; // حواف ناعمة
+    });
   }
 
-  // إضافة حدث لكل زر اختيار لغة
-  document.querySelectorAll('.lang-btn').forEach(button => {
-    button.addEventListener('click', () => {
-      activateLanguage(button.dataset.lang);
-    });
-  });
-</script>
+  setTimeout(() => {
+    siteName.style.opacity = 1;
+    siteName.style.transform = "translateY(0)";
+  }, 100);
+}
 
-</body>
-</html>
+// تعديل اسم الموقع ليصبح Ghost_KILLR
+siteName.textContent = "Ghost_KILLR";
+
+// إضافة أحداث لأزرار اختيار اللغة
+document.querySelectorAll('.lang-btn').forEach(button => {
+  button.addEventListener('click', () => {
+    activateLanguage(button.dataset.lang);
+  });
+});
