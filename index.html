@@ -127,6 +127,15 @@
   animation: moveLines 5s linear infinite;
 }
 
+@media (max-width: 480px) {
+  .card {
+    max-width: 95%;  /* تقليل العرض ليشغل تقريباً كل عرض الشاشة مع حواف */
+    padding: 20px 15px; /* تقليل البادينغ لتناسب الشاشات الصغيرة */
+    gap: 15px; /* تقليل الفجوة بين العناصر داخل الكارد */
+  }
+}
+
+    
 /* اللمعة */
 .card::before {
   content: "";
@@ -154,8 +163,6 @@
     background-position: 0 0, 40px 40px;
   }
 }
-
-
 
 #buttons-container {
   display: grid;
@@ -217,6 +224,20 @@ button.action-btn:nth-child(4) {
 button.action-btn:nth-child(4):hover {
   transform: rotate(-5deg) scale(1.05);
   box-shadow: 0 10px 30px rgb(255 118 118 / 0.9);
+}
+
+    @media (max-width: 480px) {
+  #buttons-container {
+    grid-template-columns: repeat(2, 1fr); /* صفين في العرض */
+    max-width: 100%; /* يملا العرض بالكامل */
+    gap: 15px 20px; /* تقلل التباعد شوي عشان يناسب الموبايل */
+  }
+
+  button.action-btn {
+    min-width: auto; /* تلغي الحد الأدنى للعرض عشان يضبط حسب الشبكة */
+    padding: 10px 12px; /* تصغير البادينغ شوي */
+    font-size: 0.9rem; /* تصغير الخط */
+  }
 }
 
 
