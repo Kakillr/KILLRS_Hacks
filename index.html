@@ -49,17 +49,17 @@
       color: #333;
     }
 
-    .lang-btn {
-      font-size: 1.5rem;
-      padding: 15px 50px;
-      border: none;
-      border-radius: 30px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 10px rgb(0 0 0 / 0.1);
-      background: rgb(253, 246, 236)
-      color: white;
-    }
+   .lang-btn {
+  font-size: 1.5rem;
+  padding: 15px 50px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgb(0 0 0 / 0.1);
+  background: #111111;  /* أسود غامق */
+  color: white;
+}
 
     .lang-btn:hover {
       filter: brightness(1.2);
@@ -90,10 +90,7 @@
 
 
 .card {
-  background: linear-gradient(135deg, #4a4a4a, #1e1e1e, #4a4a4a);
-  background-size: 400% 400%;
-  animation: moveGradient 8s ease infinite;
-  border: 2px solid black; /* حواف سوداء */
+  background: linear-gradient(135deg, #2f2f2f, #1e1e1e); /* رصاصي غامق */
   border-radius: 25px;
   padding: 30px 20px;
   display: flex;
@@ -107,6 +104,19 @@
   z-index: 0;
   color: white;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  
+  /* إضافة طبقة خطوط متكررة */
+  background-image: 
+    linear-gradient(135deg, #2f2f2f, #1e1e1e), /* الخلفية الأساسية */
+    repeating-linear-gradient(
+      135deg,
+      rgba(200, 200, 200, 0.05), /* لون رصاصي فاتح وشفاف */
+      rgba(200, 200, 200, 0.05) 2px,
+      transparent 2px,
+      transparent 8px
+    );
+  background-size: 100% 100%, 40px 40px; /* حجم النمط الثاني (الخطوط) */
+  animation: moveLines 5s linear infinite;
 }
 
 /* اللمعة */
@@ -127,18 +137,16 @@
   border-radius: 25px;
 }
 
-/* حركة التدرج */
-@keyframes moveGradient {
+/* حركة الخطوط */
+@keyframes moveLines {
   0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
+    background-position: 0 0, 0 0;
   }
   100% {
-    background-position: 0% 50%;
+    background-position: 0 0, 40px 40px;
   }
 }
+
 
 
     #buttons-container {
