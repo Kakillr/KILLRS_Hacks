@@ -15,11 +15,13 @@
     }
 
     * {
-      margin: 0; padding: 0; box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
       font-family: 'VIP Hala', sans-serif;
     }
 
-    body, html {
+    html, body {
       height: 100%;
       background: #f5f7fa;
       display: flex;
@@ -27,8 +29,7 @@
       align-items: center;
       overflow: hidden;
       user-select: none;
-      color: rgb(0, 0, 0);
-;
+      color: #000;
     }
 
     #language-select {
@@ -45,12 +46,10 @@
 
     #language-select h2 {
       font-size: 2rem;
-      margin-bottom: 20px;
       color: #333;
     }
 
     .lang-btn {
-      font-family: 'VIP Hala', sans-serif;
       font-size: 1.5rem;
       padding: 15px 50px;
       border: none;
@@ -70,14 +69,12 @@
 
     #main-site {
       display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       width: 100vw;
       height: 100vh;
-      padding: 20px 40px;
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
+      padding: 20px;
       background: linear-gradient(135deg, #f0f3f7, #d9e2ec);
     }
 
@@ -86,33 +83,44 @@
       font-weight: 900;
       color: #764ba2;
       text-shadow: 2px 2px 8px rgba(118, 75, 162, 0.7);
-      margin-bottom: 40px;
-      user-select: text;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 25px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      padding: 30px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      max-width: 600px;
+      width: 100%;
     }
 
     #buttons-container {
       display: grid;
-      grid-template-columns: repeat(2, 200px);
-      grid-template-rows: repeat(2, 70px);
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
       gap: 30px 40px;
+      width: 440px; /* 200 + 200 + 40 (المسافة بين الأزرار) */
       direction: rtl;
     }
 
     button.action-btn {
-      font-size: 1.25rem;
+      font-size: 1.1rem;
       border: none;
       border-radius: 15px;
       cursor: pointer;
       color: white;
-      background: linear-gradient(45deg, #ff7e5f, #feb47b);
-      box-shadow: 0 4px 12px rgb(255 126 95 / 0.6);
+      padding: 12px 10px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       position: relative;
-      overflow: hidden;
       white-space: nowrap;
     }
 
-    button.action-btn:nth-child(1) {
+ button.action-btn:nth-child(1) {
       background: linear-gradient(45deg, #667eea, #764ba2);
       box-shadow: 0 4px 15px rgb(102 126 234 / 0.7);
     }
@@ -148,21 +156,8 @@
       box-shadow: 0 10px 30px rgb(255 118 118 / 0.9);
     }
 
-    #footer-text {
-      font-size: 1rem;
-      max-width: 700px;
-      color: #444;
-      text-align: center;
-      font-weight: 500;
-      line-height: 1.5;
-      padding: 20px;
-      user-select: text;
-      direction: ltr;
-    }
-
-    /* زر التلجرام الأسود */
     .telegram-button {
-      margin-top: 10px;
+      margin-top: 15px;
       background-color: #000;
       color: #fff;
       text-decoration: none;
@@ -178,6 +173,36 @@
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
     }
 
+    #footer-text {
+      margin-top: 25px;
+      font-size: 1rem;
+      color: #444;
+      text-align: center;
+      max-width: 700px;
+      font-weight: 500;
+      line-height: 1.5;
+      padding: 0 10px;
+    }
+
+    @media (max-width: 480px) {
+      #site-name {
+        font-size: 2.2rem;
+      }
+
+      .lang-btn {
+        font-size: 1.2rem;
+        padding: 10px 30px;
+      }
+
+      .card {
+        padding: 20px;
+      }
+
+      .telegram-button {
+        width: 100%;
+        text-align: center;
+      }
+    }
   </style>
 </head>
 <body>
@@ -193,17 +218,17 @@
   <div id="main-site">
     <div id="site-name">GHOST_KILLR</div>
 
-    <div id="buttons-container">
-      <button class="action-btn" id="btn1"></button>
-      <button class="action-btn" id="btn2"></button>
-      <button class="action-btn" id="btn3"></button>
-      <button class="action-btn" id="btn4"></button>
+    <div class="card">
+      <div id="buttons-container">
+        <button class="action-btn" id="btn1"></button>
+        <button class="action-btn" id="btn2"></button>
+        <button class="action-btn" id="btn3"></button>
+        <button class="action-btn" id="btn4"></button>
+      </div>
+      <a class="telegram-button" href="https://t.me/ka_killr" target="_blank">KA_KILLR</a>
     </div>
 
     <div id="footer-text"></div>
-
-    <!-- زر التلجرام الأسود -->
-    <a class="telegram-button" href="https://t.me/ka_killr9" target="_blank">KA_KILLR</a>
   </div>
 
   <script>
