@@ -95,48 +95,6 @@
   margin-bottom: 30px;
   text-align: center;
 }
-
-
-
-  <a href="https://t.me/YourBotUsername" class="telegram-button">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="white" width="20" height="20" viewBox="0 0 24 24" style="vertical-align: middle; margin-right: 8px;">
-      <path d="M9.999 15.172 18.596 8.73c.405-.291.105-.49-.32-.2l-10.79 6.97-4.56-1.426c-.624-.194-.634-.624.132-.92l17.788-6.863c.52-.193.977.127.81.935l-3.03 14.264c-.133.644-.49.796-.993.495l-5.48-4.038-2.64 2.538c-.288.288-.53.531-1.08.531l.388-5.114z"/>
-    </svg>
-    Telegram
-  </a>
-</div>
-
-<style>
-.button-container {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-top: 20px;
-  max-width: 350px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.youtube-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #c4302b;
-  color: #fff;
-  text-decoration: none;
-  font-size: 1rem;
-  padding: 12px 25px;
-  border-radius: 12px;
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.youtube-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.9);
-}
-
     
 
 .card {
@@ -199,61 +157,68 @@
 
 
 
-    #buttons-container {
-      display: grid;
-     grid-template-columns: repeat(auto-fit, auto);
-      gap: 30px 40px;
-      width: 440px; /* 200 + 200 + 40 (المسافة بين الأزرار) */
-      direction: rtl;
-    }
+#buttons-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 20px 30px; /* تباعد عمودي وأفقي معقول */
+  width: 100%; /* عرض كامل الحاوية الأب */
+  max-width: 400px; /* حد أقصى للعرض */
+  direction: rtl;
+  margin: 0 auto; /* تمركز الحاوية */
+}
 
-    button.action-btn {
-      font-size: 1rem;
-      border: none;
-      border-radius: 15px;
-      cursor: pointer;
-      color: white;
-      padding: 12px 10px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      position: relative;
-      white-space: nowrap;
-    }
+button.action-btn {
+  font-size: 1rem;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  color: white;
+  padding: 12px 15px; /* زيادة البادينغ ليكون متناسب */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  white-space: nowrap;
+  min-width: 140px; /* أقل عرض لكل زر */
+  box-sizing: border-box;
+}
 
- button.action-btn:nth-child(1) {
-      background: linear-gradient(45deg, #667eea, #764ba2);
-      box-shadow: 0 4px 15px rgb(102 126 234 / 0.7);
-    }
-    button.action-btn:nth-child(1):hover {
-      transform: scale(1.1) rotate(3deg);
-      box-shadow: 0 8px 25px rgb(118 75 162 / 0.9);
-    }
+/* الألوان والتأثيرات كما هي */
+button.action-btn:nth-child(1) {
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  box-shadow: 0 4px 15px rgb(102 126 234 / 0.7);
+}
+button.action-btn:nth-child(1):hover {
+  transform: scale(1.1) rotate(3deg);
+  box-shadow: 0 8px 25px rgb(118 75 162 / 0.9);
+}
 
-    button.action-btn:nth-child(2) {
-      background: linear-gradient(45deg, #43cea2, #185a9d);
-      box-shadow: 0 4px 15px rgb(67 206 162 / 0.7);
-    }
-    button.action-btn:nth-child(2):hover {
-      transform: translateY(-10px);
-      box-shadow: 0 10px 30px rgb(24 90 157 / 0.9);
-    }
+button.action-btn:nth-child(2) {
+  background: linear-gradient(45deg, #43cea2, #185a9d);
+  box-shadow: 0 4px 15px rgb(67 206 162 / 0.7);
+}
+button.action-btn:nth-child(2):hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgb(24 90 157 / 0.9);
+}
 
-    button.action-btn:nth-child(3) {
-      background: linear-gradient(45deg, #f7971e, #ffd200);
-      box-shadow: 0 4px 15px rgb(247 151 30 / 0.7);
-    }
-    button.action-btn:nth-child(3):hover {
-      transform: scale(1.1) translateX(10px);
-      box-shadow: 0 10px 30px rgb(255 210 0 / 0.9);
-    }
+/* أزرار 3 و 4 تبقى بنفس التنسيق اللي عندك */
+button.action-btn:nth-child(3) {
+  background: linear-gradient(45deg, #f7971e, #ffd200);
+  box-shadow: 0 4px 15px rgb(247 151 30 / 0.7);
+}
+button.action-btn:nth-child(3):hover {
+  transform: scale(1.1) translateX(10px);
+  box-shadow: 0 10px 30px rgb(255 210 0 / 0.9);
+}
 
-    button.action-btn:nth-child(4) {
-      background: linear-gradient(45deg, #f54ea2, #ff7676);
-      box-shadow: 0 4px 15px rgb(245 78 162 / 0.7);
-    }
-    button.action-btn:nth-child(4):hover {
-      transform: rotate(-5deg) scale(1.05);
-      box-shadow: 0 10px 30px rgb(255 118 118 / 0.9);
-    }
+button.action-btn:nth-child(4) {
+  background: linear-gradient(45deg, #f54ea2, #ff7676);
+  box-shadow: 0 4px 15px rgb(245 78 162 / 0.7);
+}
+button.action-btn:nth-child(4):hover {
+  transform: rotate(-5deg) scale(1.05);
+  box-shadow: 0 10px 30px rgb(255 118 118 / 0.9);
+}
+
 
     .telegram-button {
       margin-top: 15px;
