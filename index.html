@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>KILLRS-Scripts</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- استيراد خط VIP Hala -->
   <style>
@@ -181,6 +182,45 @@
       text-align: center;
     }
 
+
+/* للأجهزة الكبيرة */
+body {
+  font-size: 16px;
+}
+
+/* للأجهزة المتوسطة (تابلت مثلاً) */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+  /* عدل تنسيقات أخرى مثل حجم الأزرار، الهوامش، إلخ */
+}
+
+/* للأجهزة الصغيرة (موبايل) */
+@media (max-width: 480px) {
+  body {
+    font-size: 12px;
+  }
+  /* يمكن تعديل عرض الأزرار ليكون 100%، وتغيير تخطيط العناصر */
+}
+.button {
+  display: block;
+  margin: 20px auto;
+  width: 200px;
+  padding: 12px;
+  font-size: 16px;
+}
+
+@media (max-width: 480px) {
+  .button {
+    width: 90%;
+    font-size: 18px;
+    padding: 15px;
+  }
+}
+
+
+    
  button.action-btn:nth-child(1) {
       background: linear-gradient(45deg, #667eea, #764ba2);
       box-shadow: 0 4px 15px rgb(102 126 234 / 0.7);
