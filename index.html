@@ -89,7 +89,10 @@
     }
 
 .card {
-  background: linear-gradient(135deg, #4a4a4a, #1e1e1e); /* تدرج من رصاصي فاتح للغامق */
+  background: linear-gradient(135deg, #4a4a4a, #1e1e1e, #4a4a4a);
+  background-size: 400% 400%;
+  animation: moveGradient 8s ease infinite;
+  border: 2px solid black; /* حواف سوداء */
   border-radius: 25px;
   padding: 30px 20px;
   display: flex;
@@ -102,10 +105,10 @@
   overflow: hidden;
   z-index: 0;
   color: white;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); /* ظل خفيف */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
 }
 
-/* لمعة مائلة */
+/* اللمعة */
 .card::before {
   content: "";
   position: absolute;
@@ -121,6 +124,19 @@
   pointer-events: none;
   z-index: 1;
   border-radius: 25px;
+}
+
+/* حركة التدرج */
+@keyframes moveGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 
