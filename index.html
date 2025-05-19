@@ -288,36 +288,36 @@
     <div id="footer-text"></div>
   </div>
 
-  <script>
-    const langSelectDiv = document.getElementById('language-select');
-    const mainSiteDiv = document.getElementById('main-site');
+<script>
+  const langSelectDiv = document.getElementById('language-select');
+  const mainSiteDiv = document.getElementById('main-site');
 
-    const texts = {
-      en: {
-        buttons: [
-          "Delta | دلتا",
-          "Krnl | كارنل",
-          "Codex | كودكس",
-          "Arsious | ارسيوس"
-        ],
-        footer: "Welcome to KILLRS-Hacks! Here you can find your favorite Hacks easily and safely. Choose a section above to get started."
-      },
-      ar: {
-        buttons: [
-          "دلتا | Delta",
-          "كارنل | Krnl",
-          "كودكس | Codex",
-          "ارسيــوس | Arsious"
-        ],
-        footer: "مرحباً بك في KILLRS-Hacks! هنا يمكنك إيجاد هاكات المفضلة لديك بسهولة وأمان. اختر القسم أعلاه للبدء."
-      }
-    };
+  const texts = {
+    en: {
+      buttons: [
+        "Delta | دلتا",
+        "Krnl | كارنل",
+        "Codex | كودكس",
+        "Arsious | ارسيوس"
+      ],
+      footer: "Welcome to KILLRS-Hacks! Here you can find your favorite Hacks easily and safely. Choose a section above to get started."
+    },
+    ar: {
+      buttons: [
+        "دلتا | Delta",
+        "كارنل | Krnl",
+        "كودكس | Codex",
+        "ارسيــوس | Arsious"
+      ],
+      footer: "مرحباً بك في KILLRS-Hacks! هنا يمكنك إيجاد هاكات المفضلة لديك بسهولة وأمان. اختر القسم أعلاه للبدء."
+    }
+  };
 
-     const urls = [
-    "https://www.mediafire.com/file/dzy438ycmwq7e3p/Delta%255B_KA_KILLR_%255D-672.apk/file?dkey=5olzrjlxfhm&r=179", // Delta
-    "https://www.mediafire.com/file/l87gfd9qqnobisy/%255Btg%2540tg%2540killr%255D_KRNL_2.673.710.apk/file?dkey=kaxwl2f50pn&r=611", // Krnl
-    "https://www.mediafire.com/file/510pqvsjyav6xrk/Codex_v2.672_%255B%2540KA_KILLR%255D.apk/file", // Codex
-    "https://www.mediafire.com/file/wayb8v9y2cweweg/Roblox_Arceus_X_KA_KILLR_1.6.6.apk/file"  // Arceus
+  const urls = [
+    "https://www.mediafire.com/file/dzy438ycmwq7e3p/Delta%255B_KA_KILLR_%255D-672.apk/file?dkey=5olzrjlxfhm&r=179",
+    "https://www.mediafire.com/file/l87gfd9qqnobisy/%255Btg%2540tg%2540killr%255D_KRNL_2.673.710.apk/file?dkey=kaxwl2f50pn&r=611",
+    "https://www.mediafire.com/file/510pqvsjyav6xrk/Codex_v2.672_%255B%2540KA_KILLR%255D.apk/file",
+    "https://www.mediafire.com/file/wayb8v9y2cweweg/Roblox_Arceus_X_KA_KILLR_1.6.6.apk/file"
   ];
 
   const buttons = [
@@ -327,29 +327,32 @@
     document.getElementById('btn4')
   ];
 
+  // ✅ ربط كل زر برابطه
+  buttons.forEach((btn, index) => {
+    btn.addEventListener('click', () => {
+      window.location.href = urls[index];
+    });
+  });
+
   const footerText = document.getElementById('footer-text');
 
-    
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const lang = btn.getAttribute('data-lang');
-        langSelectDiv.style.display = 'none';
-        mainSiteDiv.style.display = 'flex';
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const lang = btn.getAttribute('data-lang');
+      langSelectDiv.style.display = 'none';
+      mainSiteDiv.style.display = 'flex';
 
-        for(let i=1; i<=4; i++) {
-          document.getElementById('btn'+i).textContent = texts[lang].buttons[i-1];
-          document.getElementById('btn'+i).style.direction = lang === 'ar' ? 'rtl' : 'ltr';
-          document.getElementById('btn'+i).style.textAlign = 'center';
-        }
+      for(let i=1; i<=4; i++) {
+        document.getElementById('btn'+i).textContent = texts[lang].buttons[i-1];
+        document.getElementById('btn'+i).style.direction = lang === 'ar' ? 'rtl' : 'ltr';
+        document.getElementById('btn'+i).style.textAlign = 'center';
+      }
 
-        const footer = document.getElementById('footer-text');
-        footer.textContent = texts[lang].footer;
-        footer.style.direction = lang === 'ar' ? 'rtl' : 'ltr';
-        footer.style.textAlign = 'center';
-        footer.style.fontWeight = lang === 'ar' ? '600' : '500';
-      });
+      const footer = document.getElementById('footer-text');
+      footer.textContent = texts[lang].footer;
+      footer.style.direction = lang === 'ar' ? 'rtl' : 'ltr';
+      footer.style.textAlign = 'center';
+      footer.style.fontWeight = lang === 'ar' ? '600' : '500';
     });
-  </script>
-
-</body>
-</html>
+  });
+</script>
