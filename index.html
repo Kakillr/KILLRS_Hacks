@@ -99,91 +99,61 @@
 }
 
 
-.card {
-  background: linear-gradient(135deg, #2f2f2f, #1e1e1e); /* رصاصي غامق */
-  border-radius: 25px;
-  padding: 30px 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  max-width: 600px;
-  width: 100%;
-  position: relative;
-  overflow: hidden;
-  z-index: 0;
-  padding: 30px 20px;
-  color: white;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-  
-  /* إضافة طبقة خطوط متكررة */
-  background-image: 
-    linear-gradient(135deg, #2f2f2f, #1e1e1e), /* الخلفية الأساسية */
-    repeating-linear-gradient(
-      135deg,
-      rgba(200, 200, 200, 0.05), /* لون رصاصي فاتح وشفاف */
-      rgba(200, 200, 200, 0.05) 2px,
-      transparent 2px,
-      transparent 8px
-    );
-  background-size: 100% 100%, 40px 40px; /* حجم النمط الثاني (الخطوط) */
-  animation: moveLines 5s linear infinite;
-}
+   .card {
+      background: linear-gradient(135deg, #2f2f2f, #1e1e1e);
+      border-radius: 25px;
+      padding: 30px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      max-width: 600px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      z-index: 0;
+      padding: 30px 20px;
+      color: white;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
 
-/* اللمعة */
-.card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.05),
-    rgba(255, 255, 255, 0)
-  );
-  pointer-events: none;
-  z-index: 1;
-  border-radius: 25px;
-}
+      background-image: 
+        linear-gradient(135deg, #2f2f2f, #1e1e1e),
+        repeating-linear-gradient(
+          135deg,
+          rgba(200, 200, 200, 0.05),
+          rgba(200, 200, 200, 0.05) 2px,
+          transparent 2px,
+          transparent 8px
+        );
+      background-size: 100% 100%, 40px 40px;
+      animation: moveLines 5s linear infinite;
+    }
 
-/* حركة الخطوط */
-@keyframes moveLines {
-  0% {
-    background-position: 0 0, 0 0;
-  }
-  100% {
-    background-position: 0 0, 40px 40px;
-  }
-}
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.05),
+        rgba(255, 255, 255, 0)
+      );
+      pointer-events: none;
+      z-index: 1;
+      border-radius: 25px;
+    }
 
-@media (max-width: 480px) {
-  #site-name {
-    font-size: 1.8rem;
-  }
-
-  .lang-btn {
-    font-size: 1rem;
-    padding: 10px 20px;
-  }
-
-  .card {
-    padding: 15px;
-    width: 100%;
-    border-radius: 15px;
-  }
-
-  #buttons-container {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .telegram-button {
-    width: 100%;
-  }
-}
-
+    @keyframes moveLines {
+      0% {
+        background-position: 0 0, 0 0;
+      }
+      100% {
+        background-position: 0 0, 40px 40px;
+      }
+    }
 
     #buttons-container {
       display: grid;
@@ -191,9 +161,9 @@
       gap: 30px 40px;
       padding: 30px;
       margin: 20px auto;
-      width: 440px; /* 200 + 200 + 40 (المسافة بين الأزرار) */
-      direction: rtl;
+      width: 100%;
       max-width: 440px;
+      direction: rtl;
       border-radius: 15px;
     }
 
@@ -207,8 +177,8 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       position: relative;
       white-space: nowrap;
+      text-align: center;
     }
-
  button.action-btn:nth-child(1) {
       background: linear-gradient(45deg, #667eea, #764ba2);
       box-shadow: 0 4px 15px rgb(102 126 234 / 0.7);
