@@ -159,10 +159,13 @@
 
     #buttons-container {
       display: grid;
+      margin: 20px auto;
       grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
       gap: 30px 40px;
-      width: 440px; /* 200 + 200 + 40 (المسافة بين الأزرار) */
       direction: rtl;
+      padding: 30px;
+      border-radius: 15px;
+      width: 440px; /* 200 + 200 + 40 (المسافة بين الأزرار) */
     }
 
     button.action-btn {
@@ -175,6 +178,7 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       position: relative;
       white-space: nowrap;
+      text-align: center;
     }
 
  button.action-btn:nth-child(1) {
