@@ -41,7 +41,7 @@
 .lang-btn {
   background-color: #000;
   color: #f0e5d8; /* حليبي */
-  padding: 12px 25px;
+  padding: 12px 0;        /* خفف البادينج الجانبي */
   margin: 10px;
   border: none;
   border-radius: 15px;
@@ -49,8 +49,11 @@
   cursor: pointer;
   box-shadow: 0 0 15px rgba(192,192,192,0.3);
   transition: all 0.3s ease;
-  min-width: 220px;         /* ✅ يضمن الطول الموحد */
-  text-align: center;       /* ✅ يوسّط النص داخل الزر */
+  width: 180px;           /* عرض ثابت */
+  display: flex;
+  justify-content: center; /* نص بالوسط */
+  align-items: center;
+  white-space: nowrap;    /* يمنع النص من التفاف */
 }
     .lang-btn:hover {
       box-shadow: 0 0 30px rgba(192,192,192,0.5);
